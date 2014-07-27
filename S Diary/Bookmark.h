@@ -1,0 +1,15 @@
+//
+//  Bookmark.h
+//  S Diary
+//
+//  Created by Di Zhang on 21/05/13.
+//  Copyright (c) 2013 Di Zhang. All rights reserved.
+//
+
+
+#import "Location.h"
+
+
+@interface Bookmark : Location
+
+@end
