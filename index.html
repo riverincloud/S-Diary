@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>S-diary by riverincloud</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">S-diary</h1>
+        <p class="header">“S Diary” runs on both iPhone and iPad. It serves as an event management application.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/riverincloud/S-Diary/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/riverincloud/S-Diary/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/riverincloud/S-Diary">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/riverincloud">riverincloud</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="s-diary" class="anchor" href="#s-diary"><span class="octicon octicon-link"></span></a>S Diary</h1>
+
+<h2>
+<a name="app-definition-statement" class="anchor" href="#app-definition-statement"><span class="octicon octicon-link"></span></a>APP DEFINITION STATEMENT</h2>
+
+<p>“S Diary” is a mini social life costs/rewards monitor. </p>
+
+<p>Apart from properties most event management app record, “S Diary” also records your spend and satisfaction rate for an event, and associate them with your friends, coworkers, and etc. involved in this event. It will calculate the average spends and rates for each person recorded in app and generate a list. You can choose to view the list by average spends (high to low) or average rates (high to low).</p>
+
+<p>While the relationship between costs and rewards is complicated to measure in real life, you would find this app useful for tracking social spends and for fun as well.</p>
+
+<h2>
+<a name="abstract" class="anchor" href="#abstract"><span class="octicon octicon-link"></span></a>ABSTRACT</h2>
+
+<p>This application runs on both iPhone and iPad.</p>
+
+<p>It serves as a simple event management application. Any events created would be stored in the application in a persistent manner.</p>
+
+<p><strong>Events in the application contain the following properties:</strong></p>
+
+<ul>
+<li>Title of the event </li>
+<li>Start and end time of the event</li>
+<li>Location of the event<br>
+</li>
+<li>People who are involved in the event</li>
+<li>Photos of the event</li>
+<li>Your satisfaction rate for the event</li>
+<li>Your spend for the event</li>
+</ul><p><strong>Features:</strong></p>
+
+<ul>
+<li>Creating an event</li>
+<li>Viewing all events in a list sorted by start time </li>
+<li>Viewing an particular event’s details</li>
+<li>Editing an event</li>
+<li>Deleting an event</li>
+<li>Searching a location or selecting from Bookmarks, and assigning the chosen one to an event;</li>
+<li>Viewing the location of a particular event or all potential events on a map;</li>
+<li>Opening your device’s Maps app automatically for directions to an event;</li>
+<li>Capturing and viewing photos for a particular event;</li>
+<li>Adding a person to an event by selecting a contact in your device’s Contacts app.</li>
+<li>Viewing a list of people for a particular event;</li>
+<li>Recording and viewing your spend and satisfaction rate for a particular event;</li>
+<li>Viewing you average spend and average rate associated with a particular person.</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>USAGE</h2>
+
+<p>This application requires running on a actual device (either iPhone or iPad). It is not fully functional in simulator.</p>
+
+<p>Internet access is essential.</p>
+
+<h2>
+<a name="build-requirements" class="anchor" href="#build-requirements"><span class="octicon octicon-link"></span></a>BUILD REQUIREMENTS</h2>
+
+<p>iOS 6.0 SDK or later</p>
+
+<h2>
+<a name="runtime-requirements" class="anchor" href="#runtime-requirements"><span class="octicon octicon-link"></span></a>RUNTIME REQUIREMENTS</h2>
+
+<p>iOS 6.0 or later, uses Automatic Reference Counting (ARC)</p>
+
+<h2>
+<a name="changes-from-previous-versions" class="anchor" href="#changes-from-previous-versions"><span class="octicon octicon-link"></span></a>CHANGES FROM PREVIOUS VERSIONS</h2>
+
+<p>Version 1.0</p>
+
+<h2>
+<a name="packaging-list" class="anchor" href="#packaging-list"><span class="octicon octicon-link"></span></a>PACKAGING LIST</h2>
+
+<h3>
+<a name="application-configuration" class="anchor" href="#application-configuration"><span class="octicon octicon-link"></span></a>Application configuration</h3>
+
+<p><strong>APLAppDelegate.{h,m}</strong></p>
+
+<p>Configures the Core Data stack and the first view controller.</p>
+
+<h3>
+<a name="model" class="anchor" href="#model"><span class="octicon octicon-link"></span></a>Model</h3>
+
+<p><strong>S_Diary.xcdatamodeld</strong></p>
+
+<p>The Core Data managed object model for the application.</p>
+
+<p><strong>Event.{h,m}</strong></p>
+
+<p>A Core Data managed object class to represent an event containing a title, a start time, an end time, a Location object, a set of Attendee objects, a set of Photo objects, a rate and a cost.</p>
+
+<p>Event has a to-one relationship to Location, a to-many relationship to Attendee and a to-many relationship to Photo.</p>
+
+<p><strong>Location.{h,m}</strong></p>
+
+<p>A Core Data managed object class to represent a location containing a name, a latitude, and a longitude.</p>
+
+<p>Location has a to-one relationship to Event.</p>
+
+<p><strong>Bookmark.{h,m}</strong></p>
+
+<p>A Core Data managed object class to represent a location containing a name, a latitude, and a longitude.</p>
+
+<p>Bookmark is a subclass of Location.</p>
+
+<p><strong>Attendee.{h,m}</strong></p>
+
+<p>A Core Data managed object class to represent a location containing a name.</p>
+
+<p>Attendee has a to-many relationship to Event.</p>
+
+<p><strong>Photo.{h,m}</strong></p>
+
+<p>A Core Data managed object class to represent a photo containing an image and a timestamp.</p>
+
+<p>Photo has a to-one relationship to Event.</p>
+
+<p><strong>ImageToDataTransformer.{h,m}</strong></p>
+
+<p>A value transformer that transforms a UIImage object into an NSData object.</p>
+
+<h3>
+<a name="views" class="anchor" href="#views"><span class="octicon octicon-link"></span></a>Views</h3>
+
+<p><strong>Storyboard_iPhone.storyboard</strong></p>
+
+<p>The view controller graph encapsulated by a UIStoryboard object for iPhone.</p>
+
+<p><strong>Storyboard_iPad.storyboard</strong></p>
+
+<p>The view controller graph encapsulated by a UIStoryboard object for iPhone.</p>
+
+<h3>
+<a name="controllers" class="anchor" href="#controllers"><span class="octicon octicon-link"></span></a>Controllers</h3>
+
+<p><strong>EventListController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying the list of events, and supporting deletion of existing events.</p>
+
+<p>It is the delegate of an EventDetailsController object and adopts the EventDetailsControllerDelegate protocol, which allows it to manage addition of new events.</p>
+
+<p>It also posts an EventChangedNotification to the default notification center when an event is deleted.</p>
+
+<p><strong>EventDetailsController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying the title, start &amp; end time, location name, rate and cost of an event, and allowing user to view and/or edit start &amp; end time, location, attendees and photos in separate views.</p>
+
+<p>It is the delegate of a UITextField object.</p>
+
+<p>It posts an EventChangedNotification to the default notification center when an event is created or updated.</p>
+
+<p>It also registers with the default notification center to receive LocationCreatedNotification, upon receiving which it creates a new Location object and associate it with the current event being edited.</p>
+
+<p><strong>DateViewController.{h,m}</strong></p>
+
+<p>The view controller responsible for editing start and end time for the current event.</p>
+
+<p><strong>MapViewController.{h,m}</strong></p>
+
+<p>The view controller containing the MKMapView, responsible for displaying locations for all events, or for the current event, or for a location chosen from bookmarks / search results, by adding and removing custom MKPinAnnotationViews. It allows user to select an annotation to display detailed information.</p>
+
+<p>It is the delegate of CLLocationManager, MKMapView, UIPopoverController, and LocationSearchController objects. 
+It adopts the LocationSearchControllerDelegate protocol, which allows it to respond to the selection of search results and managing the dismissal of the location search view.</p>
+
+<p>It also registers with the default notification center to receive BookmarkSelectedNotification, upon receiving which it adds a new custom MKPinAnnotationView for the annotation representing the bookmark.</p>
+
+<p><strong>LocationSearchController.{h,m}</strong></p>
+
+<p>The table view controller responsible for searching places by forward geocoding as well as displaying the search results in a table.</p>
+
+<p>It is the delegate of a UISearchBar object.</p>
+
+<p><strong>LocationDetailsController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying detailed information of a location (properties of a selected MKMapItem object), allowing user to add the location to current event and/or bookmarks as well as opening the Maps app for directions.</p>
+
+<p>It posts a LocationCreatedNotification when a location is created.</p>
+
+<p><strong>LocationBookmarksController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying the list of bookmarks and supporting selection of a bookmark.</p>
+
+<p>It posts a BookmarkSelectedNotification when a particular bookmark is selected.</p>
+
+<p><strong>LocationAnnotation.{h,m}</strong></p>
+
+<p>The custom MKAnnotation object representing a generic location, hosting a title, a subtitle and an associated MKMapItem object.</p>
+
+<p><strong>UpcomingAnnotation.{h,m}</strong></p>
+
+<p>The custom MKAnnotation object representing a location of an upcoming event, hosting a title, a subtitle and an associated MKMapItem object.</p>
+
+<p><strong>PastAnnotation.{h,m}</strong></p>
+
+<p>The custom MKAnnotation object representing a location of a past event, hosting a title, a subtitle and an associated MKMapItem object.</p>
+
+<p><strong>AttendeeListController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying the list of attendees, supporting addition of new attendees and deletion of existing attendees, as well as adding or removing an attendee to or from the current event being edited.</p>
+
+<p>It is the delegate of an ABPeoplePickerNavigationController object (known as people-picker navigation controllers), which allows the user to select a contact from an address book.</p>
+
+<p>It posts an AttendeeChangedNotification when an attendee is created or deleted.</p>
+
+<p><strong>PhotoCollectionController.{h,m}</strong></p>
+
+<p>The collection view controller responsible for display the photo album associated with the current event, supporting addition of new photos via camera or photo library. It also allows user to choose a particular photo to view.</p>
+
+<p>It is the delegate of UINavigationController, UIImagePickerController, UIPopoverController, and PhotoViewController objects. It adopts the PhotoViewControllerDelegate protocol, which allows it to manage the deletion of existing photos.</p>
+
+<p><strong>PhotoViewController.{h,m}</strong></p>
+
+<p>The view controller responsible for displaying the image for a selected photo. It allows user to choose to delete the current photo.</p>
+
+<p>It is the delegate of UIActionSheet and UIPopoverController objects.</p>
+
+<p><strong>ReportViewController.{h,m}</strong></p>
+
+<p>The table view controller responsible for displaying a list of Attendee objects with their average cost and average rate properties. It is also responsible for the calculation of each attendee’s average cost and average rate. It gives user options to order the list by average cost or average rate.</p>
+
+<p>It registers with the default notification center to receive EventChangedNotification and AttendeeChangedNotification, upon receiving which it updates the table view.</p>
+
+<p><strong>EventCell.{h,m}</strong></p>
+
+<p>The custom UITableViewCell object for the table view in EventListController.</p>
+
+<p><strong>PhotoCell.{h,m}</strong></p>
+
+<p>The custom UITableViewCell object for the collection view in PhotoCollectionController.</p>
+
+<p><strong>ReportCell.{h,m}</strong></p>
+
+<p>The custom UITableViewCell object for the table view in ReportViewController.</p>
+
+<p><em><strong>Copyright (C) 2013 Di Zhang. All rights reserved.</strong></em></p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
